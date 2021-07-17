@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>Trading Hub - News Single</title>
+
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+	<!-- Vendor CSS Files -->
+	<link href="{% static 'vendor/animate.css/animate.min.css'%}" rel="stylesheet">
+	<link href="{% static 'vendor/aos/aos.css' %} " rel="stylesheet">
+	<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+	<!-- Template Main CSS File -->
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+	
+	{% include "header1.html" %}
+
+	<main id="main">
+
+		<!-- ======= Blog Section ======= -->
+		<section class="breadcrumbs">
+			<div class="container">
+
+				<div class="d-flex justify-content-between align-items-center">
+					<h2>News</h2>
+
+					<ol>
+						<li><a href="home">Home</a></li>
+						<li><a href="blog">News</a></li>
+
+						{% if news %}
+							<li>{{news.headline}}</li>
+
+						{% else %}	
+							<li>Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia reiciendis</li>	
+						
+						{% endif %}
+
+					
+					</ol>
+				</div>
+
+			</div>
+		</section><!-- End Blog Section -->
+
+		<!-- ======= Blog Single Section ======= -->
+		<section id="blog" class="blog">
+			<div class="container" data-aos="fade-up">
+
+				<div class="row">
+
+					<div class="col-lg-12 entries">
+
+						<article class="entry entry-single">
+
+							<div class="entry-img">
+								<img src="{{ news.newsProfile.url }}" alt="" class="img-fluid">
+							</div>
+
+							<h2 class="entry-title">
+								{% if news %}
+								<a href="#">{{news.headline}}</a>
+
+								{% else %}	
+									<a>Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia reiciendis</a>	
+						
+								{% endif %}
+							</h2>
+
+							<div class="entry-meta">
+								<ul>
+									{% if news %}
+										<li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Arth Shah</a></li>
+										<li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2020-01-01">{{news.date}}</time></a></li>
+
+									{% else %}	
+										<li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">John Doe</a></li>
+										<li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2020-01-01">Jan 1, 2020</time></a></li>	
+						
+									{% endif %}
+									
+								</ul>
+							</div>
+
+							<div class="entry-content">
+								{%if news%}
+									<p>{{news.article}}
+								
+								{% else %}
+								<p>
+									Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
+									Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
+								</p>
+
+								<p>
+									Sit repellat hic cupiditate hic ut nemo. Quis nihil sunt non reiciendis. Sequi in accusamus harum vel aspernatur. Excepturi numquam nihil cumque odio. Et voluptate cupiditate.
+								</p>
+
+								<blockquote>
+									<p>
+										Et vero doloremque tempore voluptatem ratione vel aut. Deleniti sunt animi aut. Aut eos aliquam doloribus minus autem quos.
+									</p>
+								</blockquote>
+
+								<p>
+									Sed quo laboriosam qui architecto. Occaecati repellendus omnis dicta inventore tempore provident voluptas mollitia aliquid. Id repellendus quia. Asperiores nihil magni dicta est suscipit perspiciatis. Voluptate ex rerum assumenda dolores nihil quaerat.
+									Dolor porro tempora et quibusdam voluptas. Beatae aut at ad qui tempore corrupti velit quisquam rerum. Omnis dolorum exercitationem harum qui qui blanditiis neque.
+									Iusto autem itaque. Repudiandae hic quae aspernatur ea neque qui. Architecto voluptatem magni. Vel magnam quod et tempora deleniti error rerum nihil tempora.
+								</p>
+
+								<h3>Et quae iure vel ut odit alias.</h3>
+								<p>
+									Officiis animi maxime nulla quo et harum eum quis a. Sit hic in qui quos fugit ut rerum atque. Optio provident dolores atque voluptatem rem excepturi molestiae qui. Voluptatem laborum omnis ullam quibusdam perspiciatis nulla nostrum. Voluptatum est libero eum nesciunt aliquid qui.
+									Quia et suscipit non sequi. Maxime sed odit. Beatae nesciunt nesciunt accusamus quia aut ratione aspernatur dolor. Sint harum eveniet dicta exercitationem minima. Exercitationem omnis asperiores natus aperiam dolor consequatur id ex sed. Quibusdam rerum dolores sint consequatur quidem ea.
+									Beatae minima sunt libero soluta sapiente in rem assumenda. Et qui odit voluptatem. Cum quibusdam voluptatem voluptatem accusamus mollitia aut atque aut.
+								</p>
+
+								<h3>Ut repellat blanditiis est dolore sunt dolorum quae.</h3>
+								<p>
+									Rerum ea est assumenda pariatur quasi et quam. Facilis nam porro amet nostrum. In assumenda quia quae a id praesentium. Quos deleniti libero sed occaecati aut porro autem. Consectetur sed excepturi sint non placeat quia repellat incidunt labore. Autem facilis hic dolorum dolores vel.
+									Consectetur quasi id et optio praesentium aut asperiores eaque aut. Explicabo omnis quibusdam esse. Ex libero illum iusto totam et ut aut blanditiis. Veritatis numquam ut illum ut a quam vitae.
+								</p>
+								<p>
+									Alias quia non aliquid. Eos et ea velit. Voluptatem maxime enim omnis ipsa voluptas incidunt. Nulla sit eaque mollitia nisi asperiores est veniam.
+								</p>
+								{% endif %}
+							</div>
+
+							
+
+						</article><!-- End blog entry -->
+
+						
+						
+					</div><!-- End blog entries list -->
+
+					
+
+				</div>
+
+			</div>
+		</section><!-- End Blog Single Section -->
+
+	</main><!-- End #main -->
+
+{% include "footer.html" %}
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
+
+	<!-- Template Main JS File -->
+	<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

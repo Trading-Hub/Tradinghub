@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>Trading Hub - Portifolio</title>
+
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+	<!-- Vendor CSS Files -->
+	<link href="{% static 'vendor/animate.css/animate.min.css'%}" rel="stylesheet">
+	<link href="{% static 'vendor/aos/aos.css' %} " rel="stylesheet">
+	<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+	<!-- Template Main CSS File -->
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+	
+	{% include "header1.html" %}
+
+
+<main id="main">
+
+		<!-- ======= Our Portfolio Section ======= -->
+		<section class="breadcrumbs">
+			<div class="container">
+
+				<div class="d-flex justify-content-between align-items-center">
+					<h2>Our Portfolio</h2>
+					<ol>
+						<li><a href="home">Home</a></li>
+						<li>Our Portfolio</li>
+					</ol>
+				</div>
+
+			</div>
+		</section><!-- End Our Portfolio Section -->
+
+		<!-- ======= Portfolio Section ======= -->
+		<section class="portfolio">
+			<div class="container">
+
+				
+
+				<div class="row portfolio-container" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+					{% if portfolio %}
+
+					{% for p in portfolio  %}
+					<div class="col-lg-4 col-md-6 portfolio-wrap filter-app">
+						<div class="portfolio-item">
+							<img src="{{ p.portfolioImage.url }}" class="img-fluid" alt="">
+							<div class="portfolio-info">
+								<h3>{{ p.portfolioName }}</h3>
+								<div>
+									<a href="{{ p.portfolioImage.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{p.portfolioName}}"><i class="bx bx-plus"></i></a>
+									<a href="portfolio-details?id={{p.id}}" title="Portfolio Details"><i class="bx bx-link"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+
+					{% else %}
+						<div class="col-lg-4 col-md-6 portfolio-wrap filter-app">
+						
+							<h3>No Portfolios</h3>
+						
+						</div>
+
+					{% endif %}
+
+				</div>
+
+			</div>
+		</section><!-- End Portfolio Section -->
+
+	</main><!-- End #main -->
+
+
+<!-- ======= Footer ======= -->
+{% include "footer.html" %}
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
+
+	<!-- Template Main JS File -->
+	<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

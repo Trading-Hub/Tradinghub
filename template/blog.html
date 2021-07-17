@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>Trading Hub - Blog</title>
+
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+	<!-- Vendor CSS Files -->
+	<link href="{% static 'vendor/animate.css/animate.min.css'%}" rel="stylesheet">
+	<link href="{% static 'vendor/aos/aos.css' %} " rel="stylesheet">
+	<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+	<!-- Template Main CSS File -->
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+	
+	{% include "header1.html" %}
+
+
+<main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Blog</h2>
+
+          <ol>
+            <li><a href="home">Home</a></li>
+            <li>Blog</li>
+        </ol>
+    </div>
+
+</div>
+</section><!-- End Blog Section -->
+
+<!-- ======= Blog Section ======= -->
+<section id="blog" class="blog">
+  <div class="container" data-aos="fade-up">
+
+    <div class="row">
+
+      <div class="col-lg-8 entries">
+      {%if blog%}
+      {% for i in blog %}
+
+        <article class="entry">
+
+          <div class="entry-img">
+            <img src="{{ i.blogProfile.url }}" alt="">
+          </div>
+
+          <h2 class="entry-title">
+              <a href="blog-details?id={{i.id}}">{{ i.blogTitle }}</a>
+          </h2>
+
+          <div class="entry-meta">
+              <ul>
+                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details">Arth Shah</a></li>
+                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details"><time datetime="2020-01-01">{{i.blogDate}}</time></a></li>
+                
+              </ul>
+          </div>
+
+          <div class="entry-content">
+            
+            
+            <p class="blog-content">
+              {{i.blogContant}}
+            </p>
+          <div class="read-more">
+              <a href="blog-details?id={{i.id}}">Read More</a>
+          </div>
+          </div>
+
+        </article><!-- End blog entry -->
+
+        {% endfor %}
+        {% else %}
+        <h1>No Blog Available</h1>
+        {% endif %}
+
+<div class="blog-pagination">
+  <ul class="justify-content-center">
+  {% if blog.has_previous %}
+    <li><a href="{% url 'blog' %}?page={{ blog.previous_page_number }}">Prev</a></li>
+    {% for i in blog.paginator.page_range %}
+    {% ifequal i blog.number %}
+        <!-- Do something special for this page -->
+        <li class="active"><a href="#">{{blog.number}}</a></li>
+    {% else %}
+        <li class=""><a href="#">{{i}}</a></li>
+    {% endifequal %}
+  {% endfor %}
+
+    
+  {% endif %}
+    
+  {% if blog.has_next %}
+    {% for i in blog.paginator.page_range %}
+    {% ifequal i blog.number %}
+        <!-- Do something special for this page -->
+        <li class="active"><a href="#">{{blog.number}}</a></li>
+    {% else %}
+        <li class=""><a href="#">{{i}}</a></li>
+    {% endifequal %}
+  {% endfor %}
+    <li><a  href="{% url 'blog' %}?page={{ blog.next_page_number }}">Next</a></li>
+    
+  {% endif %}
+</ul>
+</div>
+
+</div><!-- End blog entries list -->
+
+<div class="col-lg-4">
+
+    <div class="sidebar">
+
+      <h3 class="sidebar-title">Search</h3>
+      <div class="sidebar-item search-form">
+        <form action="">
+          <input type="text">
+          <button type="submit"><i class="bi bi-search"></i></button>
+      </form>
+  </div><!-- End sidebar search formn-->
+
+
+  <h3 class="sidebar-title">Recent News</h3>
+  <div class="sidebar-item recent-posts">
+    {% if news %}
+      {% for news in news  %}
+      <div class="post-item clearfix">
+        <img src="{{ news.newsProfile.url }}" alt="">
+        <h4><a href="news-single?id={{news.id}}">{{news.headline}}</a></h4>
+        <time datetime="2020-01-01">{{news.date}}</time>
+      </div>
+      {% endfor %}
+    {% else %}
+    <div class="post-item clearfix">
+      <h4>For Todays news stay updated</h4>
+
+    </div>
+
+
+{% endif %}
+
+
+</div><!-- End sidebar recent posts-->
+
+
+</div><!-- End sidebar -->
+
+</div><!-- End blog sidebar -->
+
+</div>
+
+</div>
+</section><!-- End Blog Section -->
+
+</main><!-- End #main -->
+
+{% include "footer.html" %}
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
+
+	<!-- Template Main JS File -->
+	<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
