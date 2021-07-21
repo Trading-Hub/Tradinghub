@@ -1,5 +1,5 @@
 from datetime import datetime, time
-from .models import BlogDetails,TodaysNews,ContactUs,Portfolio
+from .models import BlogDetails,TodaysNews,ContactUs
 from django.shortcuts import redirect, render
 from django.core.paginator import Paginator
 from django.http import HttpResponse, request
@@ -18,14 +18,7 @@ def about(request):
 def services(request):
     return render(request,"service.html",{})
 
-def portfolio(request):
-    portfolio=Portfolio.objects.all()
-    return render(request,"portfolio.html",{"portfolio" : portfolio})
 
-def portfolio_details(request):
-    portfolioId=request.GET["id"]
-    portfolio=Portfolio.objects.get(id=portfolioId)
-    return render(request,"portfolio-details.html",{"portfolio":portfolio})
 
 def blog(request):
     blog=BlogDetails.objects.all()

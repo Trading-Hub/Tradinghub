@@ -27,9 +27,3 @@ class ContactUs(models.Model):
     Subject=models.CharField(max_length=100)
     Message=models.TextField()
 
-
-class Portfolio(models.Model):
-    portfolioName=models.CharField(max_length=50)
-    PortfolioTitle=models.CharField(max_length=100)
-    portfolioDetails=models.TextField()
-    portfolioImage=models.ImageField(upload_to="portfolio")
