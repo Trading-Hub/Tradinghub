@@ -18,7 +18,11 @@ def about(request):
 def services(request):
     return render(request,"service.html",{})
 
+def terms(request):
+    return render(request,"tos.html",{})
 
+def privacy(request):
+    return render(request,"privicy.html",{})
 
 def blog(request):
     blog=BlogDetails.objects.all()

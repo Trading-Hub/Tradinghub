@@ -13,5 +13,6 @@ urlpatterns = [
     path("contact",views.contact,name="contact"),
     path("dataSend",views.dataSend,name="dataSend"),
     path("news-single",views.newsSingle,name="news-single"),
-
+    path("terms",views.terms,name="terms"),
+    path("privacy",views.privacy,name="privacy")
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
